@@ -94,6 +94,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void onClickEdit(View view){
+
+    }
+
+
     public void onClick(View view){
         final Task[] task = {new Task(null, editText.getText().toString(), false)};
 

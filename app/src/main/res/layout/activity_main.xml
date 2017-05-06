@@ -12,25 +12,36 @@
     tools:context="com.sdacademy.slowinski.andrzej.httpspringconnection.MainActivity"
     android:weightSum="1">
 
-
+    <EditText
+        android:id="@+id/edit"
+        android:hint="new element value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <Button
+            android:onClick="onClick"
+            android:text="save"
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:text="edit"
+            android:onClick="onClickEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
     <ListView
         android:id="@+id/list"
         android:layout_width="wrap_content"
         android:layout_height="242dp"
-        android:layout_weight="0.81">
+        android:layout_weight="0.56">
 
     </ListView>
 
-    <EditText
-        android:id="@+id/edit"
-        android:hint="edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <Button
-        android:onClick="onClick"
-        android:text="save"
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+
 
 </LinearLayout>

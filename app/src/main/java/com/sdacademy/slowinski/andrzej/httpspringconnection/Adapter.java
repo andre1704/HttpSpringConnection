@@ -27,10 +27,12 @@ import static com.sdacademy.slowinski.andrzej.httpspringconnection.mapper.TaskMa
 
 public class Adapter extends ArrayAdapter<Task> {
     private TaskService taskService;
+    private boolean EditMode;
     public Adapter(Context context, List<Task> objects, TaskService taskService) {
         super(context, 0, objects);
         this.taskService=taskService;
     }
+    
     public View getView(int position, View convertView, ViewGroup parent){
         final Task item=  getItem(position);
         if(convertView==null){
@@ -39,6 +41,16 @@ public class Adapter extends ArrayAdapter<Task> {
         TextView itemNo= (TextView) convertView.findViewById(R.id.singleRowNo);
         TextView itemText= (TextView) convertView.findViewById(R.id.singleRowText);
         final CheckBox itemCheckBox= (CheckBox) convertView.findViewById(R.id.itemCHeckBox);
+        checboxListener(item, itemCheckBox);
+
+        itemNo.setText(String.valueOf(position));
+        itemText.setText(item.getValue());
+        itemCheckBox.setChecked(item.getCompleted());
+
+        return convertView;
+    }
+
+    private void checboxListener(final Task item, final CheckBox itemCheckBox) {
         itemCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -62,11 +74,5 @@ public class Adapter extends ArrayAdapter<Task> {
 
             }
         });
-
-        itemNo.setText(String.valueOf(position));
-        itemText.setText(item.getValue());
-        itemCheckBox.setChecked(item.getCompleted());
-
-        return convertView;
     }
 }
