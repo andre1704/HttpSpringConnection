@@ -71,11 +71,12 @@ public class Adapter extends ArrayAdapter<Task> {
             TextView itemNoE = (TextView) convertView.findViewById(R.id.singleRowNoEdit);
             TextView itemTextE = (TextView) convertView.findViewById(R.id.singleRowTextEdit);
             EditText itemTextEdit = (EditText) convertView.findViewById(R.id.edited_field);
+            Button button = (Button) convertView.findViewById(R.id.save_editedEdit);
             final CheckBox itemCheckBoxE = (CheckBox) convertView.findViewById(R.id.itemCHeckBoxEdit);
 
             checkboxListener(item, itemCheckBoxE);
+            buttonListener(item,button,itemTextEdit);
 
-            Button button = (Button) convertView.findViewById(R.id.save_editedEdit);
             itemNoE.setText(String.valueOf(position));
             itemTextE.setText(item.getValue());
             itemCheckBoxE.setChecked(item.getCompleted());
